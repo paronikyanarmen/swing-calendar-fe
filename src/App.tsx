@@ -1,7 +1,21 @@
+import {useState} from "react";
+import {Header} from "./components/Header/Header";
+import { getPreviousMonday } from "./date";
+
+
 function App() {
+    const currentDate = new Date();
+    console.log(getPreviousMonday(currentDate));
+    const [selectedWeek, setSelectedWeek] = useState(() => getPreviousMonday(currentDate));
+
     return (
-        <div>Hello calendar</div>
-    )
+        <Header
+            currentDate={currentDate}
+            selectedWeek={selectedWeek}
+            onWeekChange={setSelectedWeek}
+        />
+
+    );
 }
 
-export default App
+export default App;
