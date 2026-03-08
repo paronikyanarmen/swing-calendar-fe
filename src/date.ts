@@ -13,8 +13,14 @@ export function getWeekNumber(date: Date): number {
     return Math.ceil((diff / oneWeek + start.getDay() + 1) / 7);
 }
 
-export function shiftWeek(monday: Date, direction: -1 | 1): Date {
+export function getNextWeekStart(monday: Date): Date {
     const next = new Date(monday);
-    next.setDate(next.getDate() + direction * 7);
+    next.setDate(next.getDate() + 7);
+    return next;
+}
+
+export function getPrevWeekStart(monday: Date): Date {
+    const next = new Date(monday);
+    next.setDate(next.getDate() - 7);
     return next;
 }

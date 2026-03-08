@@ -12,9 +12,8 @@ function App() {
         <Header
             currentDate={currentDate}
             selectedWeek={selectedWeek}
-            onWeekChange={setSelectedWeek}
+            setSelectedWeek={setSelectedWeek}
         />
-
     );
 }
 

@@ -1,13 +1,13 @@
-import {getWeekNumber, shiftWeek} from "@/date.ts";
+import {getWeekNumber, getPrevWeekStart, getNextWeekStart} from "@/date.ts";
 
 interface HeaderProps {
     currentDate: Date;
     selectedWeek: Date;
-    onWeekChange: (newWeek: Date) => void;
+    setSelectedWeek: (newWeek: Date) => void;
 }
 
 
-export function Header({currentDate, selectedWeek, onWeekChange}: HeaderProps) {
+export function Header({currentDate, selectedWeek, setSelectedWeek}: HeaderProps) {
     const weekNumber = getWeekNumber(selectedWeek);
 
     return (
@@ -16,7 +16,7 @@ export function Header({currentDate, selectedWeek, onWeekChange}: HeaderProps) {
 
             <div className="flex items-center gap-3">
                 <button
-                    onClick={() => onWeekChange(shiftWeek(selectedWeek, -1))}
+                    onClick={() => setSelectedWeek(getPrevWeekStart(selectedWeek))}
                     className="rounded p-1 hover:bg-gray-200 transition-colors"
                     aria-label="Previous week"
                 >
@@ -30,7 +30,7 @@ export function Header({currentDate, selectedWeek, onWeekChange}: HeaderProps) {
                 <span className="text-lg font-medium">Week {weekNumber}</span>
 
                 <button
-                    onClick={() => onWeekChange(shiftWeek(selectedWeek, 1))}
+                    onClick={() => setSelectedWeek(getNextWeekStart(selectedWeek))}
                     className="rounded p-1 hover:bg-gray-200 transition-colors"
                     aria-label="Next week"
                 >
