@@ -1,9 +1,11 @@
+import dayjs from 'dayjs';
+
 export function getPreviousMonday(date: Date): Date {
-    const d = new Date(date);
-    const day = d.getDay();
-    const diff = day === 0 ? -6 : 1 - day;
-    d.setDate(d.getDate() + diff);
-    return d;
+    const copy = dayjs(date);
+    const day = copy.day();
+    const to_subtract = (7 + (day - 1)) % 7;
+
+    return copy.subtract(to_subtract, 'day').toDate();
 }
 
 export function getWeekNumber(date: Date): number {

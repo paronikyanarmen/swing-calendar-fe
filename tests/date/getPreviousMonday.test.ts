@@ -50,4 +50,18 @@ describe("getPreviousMonday", () => {
     const result = getPreviousMonday(sunday);
     expect(result.toDateString()).toBe(expectedMonday.toDateString());
   });
+
+  it("should get monday from previous month when input is in first week of the month", () => {
+    const wednesday = new Date(2026, 3, 1); // Wednesday, April 1, 2026
+    const expectedMonday = new Date(2026, 2, 30); // Monday, March 30, 2026
+    const result = getPreviousMonday(wednesday);
+    expect(result.toDateString()).toBe(expectedMonday.toDateString());
+  });
+
+  it("should get monday from previous year when input is in first week of the year", () => {
+    const thursday = new Date(2026, 0, 1); // Thursday, January 1, 2026
+    const expectedMonday = new Date(2025, 11, 29); // Monday, December 29, 2025
+    const result = getPreviousMonday(thursday);
+    expect(result.toDateString()).toBe(expectedMonday.toDateString());
+  });
 });
