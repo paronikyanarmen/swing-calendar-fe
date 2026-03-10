@@ -27,3 +27,23 @@ export function getPrevWeekStart(date: Date): Date {
     const prev_prev_monday = dayjs(prev_monday).subtract(7, 'day');
     return prev_prev_monday.toDate();
 }
+
+export function getUtcOffsetLabel(date: Date): string {
+    const offsetMin = dayjs(date).utcOffset();
+    const sign = offsetMin >= 0 ? "+" : "-";
+    const unsignedOffset = Math.abs(offsetMin);
+    const hours = Math.floor(unsignedOffset / 60).toString();
+    const minutes = unsignedOffset % 60;
+
+    const hours_for_display = hours.padStart(2, "0");
+
+    const result = `UTC${sign}${hours_for_display}`;
+
+    if (!minutes) {
+        return result;
+    }
+
+    const minutes_for_display = minutes.toString().padStart(2, "0");
+
+    return `${result}:${minutes_for_display}`;
+}
