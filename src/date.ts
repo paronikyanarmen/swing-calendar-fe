@@ -28,6 +28,11 @@ export function getPrevWeekStart(date: Date): Date {
     return prev_prev_monday.toDate();
 }
 
+export function getWeekDays(monday: Date): Date[] {
+    const start = dayjs(monday);
+    return Array.from({ length: 7 }, (_, i) => start.add(i, 'day').toDate());
+}
+
 export function getUtcOffsetLabel(date: Date): string {
     const offsetMin = dayjs(date).utcOffset();
     const sign = offsetMin >= 0 ? "+" : "-";
