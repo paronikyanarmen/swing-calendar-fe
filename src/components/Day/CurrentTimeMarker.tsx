@@ -1,9 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import {useEffect, useRef, useState} from "react";
+import {getCurrentMinutes} from "@/dateService/formatter.ts";
 
-function getCurrentMinutes() {
-    const now = new Date();
-    return now.getHours() * 60 + now.getMinutes();
-}
 
 export function CurrentTimeMarker() {
     const [totalMinutes, setTotalMinutes] = useState(getCurrentMinutes);
@@ -15,7 +12,7 @@ export function CurrentTimeMarker() {
     }, []);
 
     useEffect(() => {
-        lineRef.current?.scrollIntoView({ block: "center" });
+        lineRef.current?.scrollIntoView({block: "center"});
     }, []);
 
     const topPx = totalMinutes / 60 * 48;
@@ -24,10 +21,10 @@ export function CurrentTimeMarker() {
         <div
             ref={lineRef}
             className="absolute left-0 right-0 z-20 flex items-center pointer-events-none"
-            style={{ top: `${topPx}px`, transform: "translateY(-50%)" }}
+            style={{top: `${topPx}px`, transform: "translateY(-50%)"}}
         >
-            <div className="w-2.5 h-2.5 rounded-full bg-red-500 -ml-1 shrink-0" />
-            <div className="flex-1 h-0.5 bg-red-500" />
+            <div className="w-2.5 h-2.5 rounded-full bg-red-500 -ml-1 shrink-0"/>
+            <div className="flex-1 h-0.5 bg-red-500"/>
         </div>
     );
 }

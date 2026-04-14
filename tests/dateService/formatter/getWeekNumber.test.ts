@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import { getWeekNumber } from "@/date";
+import { getWeekNumber } from "@/dateService/formatter";
 
 describe("getWeekNumber", () => {
   it("should return correct week number when week is in the middle of the year", () => {

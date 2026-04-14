@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import dayjs from "dayjs";
 
-import { getUtcOffsetLabel } from "@/date";
+import { getUtcOffsetLabel } from "@/dateService/formatter";
 
 describe("getUtcOffsetLabel", () => {
   const date = new Date();

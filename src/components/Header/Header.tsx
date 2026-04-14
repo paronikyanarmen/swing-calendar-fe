@@ -1,4 +1,5 @@
-import {getWeekNumber, getPrevWeekStart, getNextWeekStart, getUtcOffsetLabel} from "@/date.ts";
+import {getUtcOffsetLabel, getWeekNumber} from "@/dateService/formatter.ts";
+import {getNextWeekStart, getPrevWeekStart} from "@/dateService/math.ts";
 
 interface HeaderProps {
     currentDate: Date;
@@ -14,7 +15,7 @@ export function Header({currentDate, selectedWeek, setSelectedWeek}: HeaderProps
         <header className="flex items-center justify-between px-6 py-4">
             <div className="flex items-center gap-2">
                 <span className="text-2xl font-bold">
-                    {currentDate.toLocaleString("default", { month: "long" })} {currentDate.getFullYear()}
+                    {currentDate.toLocaleString("default", {month: "long"})} {currentDate.getFullYear()}
                 </span>
                 <span className="text-sm text-gray-500">{getUtcOffsetLabel(currentDate)}</span>
             </div>

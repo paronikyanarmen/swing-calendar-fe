@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 
-import { getWeekDays } from "@/date";
 import { Day } from "@/components/Day/Day";
 import { HoursScale } from "@/components/Week/HoursScale";
+import {getWeekDays} from "@/dateService/collectionGenerator.ts";
 
 interface WeekProps {
     currentDate: Date;

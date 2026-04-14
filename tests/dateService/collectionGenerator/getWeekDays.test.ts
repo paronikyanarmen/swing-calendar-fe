@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import { getWeekDays } from "@/date";
+import { getWeekDays } from "@/dateService/collectionGenerator";
 
 describe("getWeekDays", () => {
   it("should return 7 days starting from the given Monday", () => {

@@ -1,7 +1,8 @@
 import {useState} from "react";
 import {Header} from "./components/Header/Header";
 import {Week} from "./components/Week/Week";
-import { getPreviousMonday } from "./date";
+import {Sidebar} from "./components/Sidebar/Sidebar";
+import {getPreviousMonday} from "@/dateService/math.ts";
 
 
 function App() {
@@ -9,13 +10,20 @@ function App() {
     const [selectedWeek, setSelectedWeek] = useState(() => getPreviousMonday(currentDate));
 
     return (
-        <div className="flex flex-col h-screen">
-            <Header
+        <div className="flex h-screen">
+            <Sidebar
                 currentDate={currentDate}
                 selectedWeek={selectedWeek}
                 setSelectedWeek={setSelectedWeek}
             />
-            <Week currentDate={currentDate} selectedWeek={selectedWeek} />
+            <div className="flex flex-col flex-1 min-w-0">
+                <Header
+                    currentDate={currentDate}
+                    selectedWeek={selectedWeek}
+                    setSelectedWeek={setSelectedWeek}
+                />
+                <Week currentDate={currentDate} selectedWeek={selectedWeek} />
+            </div>
         </div>
     );
 }

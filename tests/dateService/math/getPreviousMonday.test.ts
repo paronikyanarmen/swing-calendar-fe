@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import { getPreviousMonday } from "@/date";
+import { getPreviousMonday } from "@/dateService/math";
 
 describe("getPreviousMonday", () => {
   it("should return the same date when input is a monday", () => {
