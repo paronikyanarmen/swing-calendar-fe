@@ -35,7 +35,7 @@ export function Sidebar({ currentDate, selectedWeek, setSelectedWeek }: SidebarP
     }
 
     return (
-        <aside className="w-64 shrink-0 border-r border-gray-200 px-4 pt-16">
+        <aside className="w-64 shrink-0 border-r border-gray-200 px-4 pt-56">
             <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-semibold">{monthLabel}</span>
                 <div className="flex items-center gap-1">
