@@ -1,5 +1,5 @@
 import {getUtcOffsetLabel, getWeekMonthLabel, getWeekNumber} from "@/dateService/formatter.ts";
-import {getNextWeekStart, getPrevWeekStart} from "@/dateService/math.ts";
+import {getNextWeekStart, getPrevWeekStart, getPreviousMonday} from "@/dateService/math.ts";
 
 interface HeaderProps {
     currentDate: Date;
@@ -12,13 +12,20 @@ export function Header({currentDate, selectedWeek, setSelectedWeek}: HeaderProps
     const weekNumber = getWeekNumber(selectedWeek);
 
     return (
-        <header className="flex items-center justify-between px-6 py-4">
+        <header className="grid grid-cols-3 items-center px-6 py-4">
             <div className="flex items-center gap-2">
                 <span className="text-2xl font-bold">{getWeekMonthLabel(selectedWeek)}</span>
                 <span className="text-sm text-gray-500">{getUtcOffsetLabel(currentDate)}</span>
             </div>
 
-            <div className="flex items-center gap-3">
+            <button
+                onClick={() => setSelectedWeek(getPreviousMonday(currentDate))}
+                className="justify-self-center rounded border border-gray-300 px-3 py-1 text-sm font-medium hover:bg-gray-200 transition-colors"
+            >
+                Today
+            </button>
+
+            <div className="flex items-center justify-self-end gap-3">
                 <button
                     onClick={() => setSelectedWeek(getPrevWeekStart(selectedWeek))}
                     className="rounded p-1 hover:bg-gray-200 transition-colors"
