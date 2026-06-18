@@ -37,3 +37,16 @@ export function getCurrentMinutes(): number {
 export function getMonthAndYearLabel(date: Date): string {
     return dayjs(date).format("MMMM YYYY");
 }
+
+export function getWeekMonthLabel(weekStart: Date): string {
+    const start = dayjs(weekStart);
+    const end = start.add(6, "day");
+
+    if (start.isSame(end, "month")) {
+        return start.format("MMMM YYYY");
+    }
+    if (start.isSame(end, "year")) {
+        return `${start.format("MMMM")} – ${end.format("MMMM YYYY")}`;
+    }
+    return `${start.format("MMMM YYYY")} – ${end.format("MMMM YYYY")}`;
+}
