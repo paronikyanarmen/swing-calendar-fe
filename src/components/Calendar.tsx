@@ -1,11 +1,11 @@
 import {useState} from "react";
-import {Header} from "./components/Header/Header";
-import {Week} from "./components/Week/Week";
-import {Sidebar} from "./components/Sidebar/Sidebar";
+import {Header} from "./Header/Header.tsx";
+import {Week} from "./Week/Week.tsx";
+import {Sidebar} from "./Sidebar/Sidebar.tsx";
 import {getPreviousMonday} from "@/dateService/math.ts";
 
 
-function App() {
+function Calendar() {
     const currentDate = new Date();
     const [selectedWeek, setSelectedWeek] = useState(() => getPreviousMonday(currentDate));
 
@@ -28,4 +28,4 @@ function App() {
     );
 }
 
-export default App;
+export default Calendar;

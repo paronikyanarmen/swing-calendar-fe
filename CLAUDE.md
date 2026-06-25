@@ -109,7 +109,7 @@ const queryClient = new QueryClient({
 });
 
 <QueryClientProvider client={queryClient}>
-  <App />
+  <Calendar />
 </QueryClientProvider>
 ```
 
@@ -194,16 +194,16 @@ src/
       components/
       hooks/
       api.ts
-      index.ts     # Public API of the feature
-  hooks/           # App-wide custom hooks
+      index.tsx     # Public API of the feature
+  hooks/           # Calendar-wide custom hooks
   pages/           # Route-level page components
   types/           # Shared global TypeScript types only
   main.tsx
-  App.tsx
+  Calendar.tsx
 ```
 
 - Use **feature folders** for domain logic — keep features self-contained
-- Each feature exports a clean public API via `index.ts`
+- Each feature exports a clean public API via `index.tsx`
 - Avoid deeply nested imports — use path aliases (e.g. `@/components/...`)
 
 ---
@@ -240,7 +240,7 @@ resolve: {
 
 - Use **absolute imports** via path aliases (`@/`) — never use deep relative paths like `../../../`
 - Group imports: external libs → internal modules → relative files → types
-- Avoid barrel `index.ts` files that re-export everything — they hurt tree-shaking and discoverability
+- Avoid barrel `index.tsx` files that re-export everything — they hurt tree-shaking and discoverability
 - Import types with `import type` to keep runtime bundles clean
 
 ```ts
