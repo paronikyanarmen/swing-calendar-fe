@@ -1,14 +1,14 @@
 import {getUtcOffsetLabel, getWeekMonthLabel, getWeekNumber} from "@/dateService/formatter.ts";
 import {getNextWeekStart, getPrevWeekStart, getPreviousMonday} from "@/dateService/math.ts";
 
-interface HeaderProps {
+interface CalendarHeaderProps {
     currentDate: Date;
     selectedWeek: Date;
     setSelectedWeek: (newWeek: Date) => void;
 }
 
 
-export function Header({currentDate, selectedWeek, setSelectedWeek}: HeaderProps) {
+export function CalendarHeader({currentDate, selectedWeek, setSelectedWeek}: CalendarHeaderProps) {
     const weekNumber = getWeekNumber(selectedWeek);
 
     return (

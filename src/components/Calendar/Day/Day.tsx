@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-import { CurrentTimeMarker } from "@/components/Day/CurrentTimeMarker";
+import { CurrentTimeMarker } from "@/components/Calendar/Day/CurrentTimeMarker";
 
 interface DayProps {
     date: Date;

@@ -1,12 +1,12 @@
-import { MiniCalendar } from "@/components/Sidebar/MiniCalendar";
+import { MiniCalendar } from "@/components/Calendar/Sidebar/MiniCalendar";
 
-interface SidebarProps {
+interface CalendarSidebarProps {
     currentDate: Date;
     selectedWeek: Date;
     setSelectedWeek: (week: Date) => void;
 }
 
-export function Sidebar({ currentDate, selectedWeek, setSelectedWeek }: SidebarProps) {
+export function CalendarSidebar({ currentDate, selectedWeek, setSelectedWeek }: CalendarSidebarProps) {
     return (
         <aside className="w-64 shrink-0 border-r border-gray-200 px-4 pt-56">
             <MiniCalendar
